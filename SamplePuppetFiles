@@ -1,0 +1,24 @@
+class user_creator {
+user { 'rose':
+ensure   => present,
+
+uid => 1382,
+
+ }}
+
+
+node 'stapp02.stratos.xfusioncorp.com' {
+
+include user_creator
+
+}
+
+
+------------------
+
+puppet parser validate official.pp
+
+----------------
+
+puppet agent -tv
+
