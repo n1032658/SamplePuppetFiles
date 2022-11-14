@@ -22,3 +22,17 @@ puppet parser validate official.pp
 
 puppet agent -tv
 
+----------------
+
+class { 'ntp':
+servers => [ 'server 3.europe.pool.ntp.org' ],
+}
+class ntpconfig {
+include ntp
+}
+
+node 'stapp01.stratos.xfusioncorp.com' {
+include ntpconfig
+}
+
+--------------
