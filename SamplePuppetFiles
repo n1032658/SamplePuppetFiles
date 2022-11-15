@@ -62,3 +62,23 @@ class file_modifier {
 
  }
  
+---------------------------------------
+
+class httpd_installer {                               
+
+    package {'httpd':
+
+        ensure => installed
+
+    }
+
+}
+node 'stapp01.stratos.xfusioncorp.com' {
+
+  include httpd_installer
+
+}
+
+puppet parser validate cluster.pp
+puppet agent -tv
+rpm -qa |grep nginx
